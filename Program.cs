@@ -25,7 +25,7 @@ int[] GetRandomArray(int length)
     int[] randomArray = new int[length];
     for (int i = 0; i < length; i++)
     {
-        randomArray[i] = GetRandomNumber(0, 9);
+        randomArray[i] = GetRandomNumber(0, 100);
     }
     return randomArray;
 }
@@ -33,7 +33,7 @@ int[] GetRandomArray(int length)
 int[] CountingSort(int[] sortArray)
 {
     int[] newArray = new int[sortArray.Length];
-    int[] counters = new int[10];
+    int[] counters = new int[sortArray.Max() + 1];
 
     for (int i = 0; i < sortArray.Length; i++)
     {
@@ -52,7 +52,7 @@ int[] CountingSort(int[] sortArray)
     return newArray;
 }
 
-int[] array = GetRandomArray(50);
+int[] array = GetRandomArray(100);
 Console.WriteLine("Изначальный массив:");
 PrintArrayToConsole(array);
 Console.WriteLine("\nМассив подсчёта элементов:");
