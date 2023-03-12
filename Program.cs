@@ -59,5 +59,6 @@ int[] CountingSort(int[] sortArray)
 int[] array = GetRandomArray(100);
 Console.WriteLine("Изначальный массив:");
 PrintArrayToConsole(array);
-Console.WriteLine("\nМассив подсчёта элементов:");
+Console.WriteLine();
+Console.WriteLine("Массив подсчёта элементов:");
 PrintArrayToConsole(CountingSort(array));
