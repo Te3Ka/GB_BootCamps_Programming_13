@@ -25,19 +25,23 @@ int[] GetRandomArray(int length)
     int[] randomArray = new int[length];
     for (int i = 0; i < length; i++)
     {
-        randomArray[i] = GetRandomNumber(0, 100);
+        randomArray[i] = GetRandomNumber(-10, 25);
     }
     return randomArray;
 }
 
 int[] CountingSort(int[] sortArray)
 {
+    int max = sortArray.Max();
+    int min = sortArray.Min();
+    int offset = -min;
+
     int[] newArray = new int[sortArray.Length];
-    int[] counters = new int[sortArray.Max() + 1];
+    int[] counters = new int[max + offset + 1];
 
     for (int i = 0; i < sortArray.Length; i++)
     {
-        counters[sortArray[i]]++;
+        counters[sortArray[i] + offset]++;
     }
 
     int index = 0;
@@ -45,7 +49,7 @@ int[] CountingSort(int[] sortArray)
     {
         for (int j = 0; j < counters[i]; j++)
         {
-            newArray[index] = i;
+            newArray[index] = i - offset;
             index++;
         }
     }
